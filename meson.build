@@ -1,4 +1,5 @@
 project('acmicpc-cpp11', 'cpp',
+    version: '0.2.0',
     meson_version: '>= 0.59.0',
     default_options: [
     'werror=true',
@@ -32,3 +33,11 @@ subdir('10872')
 subdir('10950')
 subdir('4999')
 subdir('2754')
+subdir('1264')
+subdir('2439')
+subdir('2440')
+subdir('10808')
+subdir('11365')
+subdir('11720')
+subdir('11945')
+subdir('15552')
