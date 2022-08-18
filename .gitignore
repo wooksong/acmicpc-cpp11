@@ -30,4 +30,7 @@
 *.exe
 *.out
 *.app
+
+# Project-specific files
 input.txt
+/build
