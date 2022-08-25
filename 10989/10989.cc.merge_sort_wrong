@@ -1,0 +1,68 @@
+#include <iostream>
+
+constexpr uint32_t MAX_NUMS = 10000000;
+
+uint32_t nums[MAX_NUMS];
+uint32_t tmp_nums[MAX_NUMS];
+
+void sort(uint32_t *array, uint32_t l, uint32_t r);
+void merge(uint32_t *array, uint32_t l, uint32_t r);
+
+int main() {
+    uint32_t N;
+
+    // freopen("input.txt", "r", stdin);
+    std::cin >> N;
+    for (uint32_t i = 0; i < N; ++i) {
+        std::cin >> nums[i];
+    }
+
+    sort(nums, 0, N);
+
+    for (uint32_t i = 0; i < N; ++i) {
+        std::cout << nums[i] << " ";
+    }
+    std::cout << "\n";
+
+    return 0;
+}
+
+void merge(uint32_t *array, uint32_t l, uint32_t r) {
+    uint32_t i, j, mid, idx;
+
+    idx = i = l;
+    mid = l + (r - l) / 2;
+    j = mid;
+
+    while (i < mid && j < r) {
+        if (array[i] <= array[j]) {
+            tmp_nums[idx++] = array[i++];
+        } else {
+            tmp_nums[idx++] = array[j++];
+        }
+    }
+
+    while (i < mid) {
+        tmp_nums[idx++] = array[i++];
+    }
+
+    while (j < r) {
+        tmp_nums[idx++] = array[j++];
+    }
+
+    for (i = l; i < r; ++i) {
+        array[i] = tmp_nums[i];
+    }
+}
+
+void sort(uint32_t *array, uint32_t l, uint32_t r) {
+    if (l >= r)
+        return;
+
+    if (r - l > 2) {
+        sort(array, l, (r - l) / 2);
+        sort(array, l + (r - l) / 2, r);
+    }
+
+    return merge(array, l, r);
+}
