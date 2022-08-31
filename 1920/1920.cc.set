@@ -1,0 +1,32 @@
+#include <iostream>
+#include <set>
+
+int main() {
+    size_t N, M;
+    int32_t num;
+    std::set<int32_t> nums;
+
+    std::ios_base::sync_with_stdio(false);
+    std::cin.tie(NULL);
+    std::cout.tie(NULL);
+
+    std::cin >> N;
+    for (size_t i = 0; i < N; ++i) {
+        std::cin >> num;
+
+        nums.insert(num);
+    }
+
+    std::cin >> M;
+    for (size_t i = 0; i < M; ++i) {
+        std::cin >> num;
+        auto search = nums.find(num);
+
+        if (search != nums.end()) {
+            std::cout << "1\n";
+        } else {
+            std::cout << "0\n";
+        }
+    }
+    return 0;
+}
