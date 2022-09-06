@@ -1,0 +1,82 @@
+#include <iostream>
+#include <vector>
+
+class Site {
+  public:
+    std::string m_url;
+    std::string m_pw;
+
+    Site(std::string &url, std::string &pw) {
+        m_url = url;
+        m_pw = pw;
+    }
+};
+
+constexpr uint64_t HASH_MUL = 53;
+constexpr uint64_t HASH_DIVIDER = 100003;
+constexpr uint64_t CODE_DOT = static_cast<uint64_t>('z' + 2);
+constexpr uint64_t CODE_HYPHEN = static_cast<uint64_t>('z' + 3);
+
+uint64_t gen_hash(std::string &s);
+
+int main() {
+    std::vector<std::vector<Site>> hashtable =
+        std::vector<std::vector<Site>>(HASH_DIVIDER);
+    uint64_t N, M;
+
+    // freopen("input.txt", "r", stdin);
+    std::ios_base::sync_with_stdio(false);
+    std::cin.tie(nullptr);
+    std::cout.tie(nullptr);
+
+    std::cin >> N >> M;
+    for (uint64_t i = 0; i < N; ++i) {
+
+        std::string url, pw;
+
+        std::cin >> url >> pw;
+        hashtable[gen_hash(url)].push_back(Site(url, pw));
+    }
+
+    for (uint64_t i = 0; i < M; ++i) {
+        uint64_t hash_val;
+        std::vector<Site> *v;
+
+        std::string url;
+        std::cin >> url;
+
+        hash_val = gen_hash(url);
+        v = &hashtable[hash_val];
+        for (auto iter = v->begin(); iter != v->end(); ++iter) {
+            if ((*iter).m_url == url) {
+                std::cout << (*iter).m_pw << "\n";
+                break;
+            }
+        }
+    }
+
+    return 0;
+}
+
+uint64_t gen_hash(std::string &s) {
+    uint64_t val = 0;
+    uint64_t mul = 1;
+
+    for (auto iter = s.begin(); iter != s.end(); ++iter) {
+        uint64_t char_to_u64;
+
+        if (*iter == '.') {
+            char_to_u64 = CODE_DOT;
+        } else if (*iter == '-') {
+            char_to_u64 = CODE_HYPHEN;
+        } else {
+            char_to_u64 = static_cast<uint64_t>(*iter - 'A') + 1;
+        }
+
+        val = (val + mul * char_to_u64) % HASH_DIVIDER;
+        mul *= HASH_MUL;
+        mul %= HASH_DIVIDER;
+    }
+
+    return val;
+}
