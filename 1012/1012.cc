@@ -24,7 +24,6 @@ int main() {
     std::cin >> T;
 
     for (int t = 0; t < T; ++t) {
-        int visited;
         int need;
 
         std::cin >> num_cols >> num_rows >> num_cabbages;
@@ -37,15 +36,13 @@ int main() {
             land[r][c] = CABBAGE;
         }
 
-        visited = 0;
         need = 0;
         for (int i = 0; i < num_rows; ++i) {
             for (int j = 0; j < num_cols; ++j) {
                 if (land[i][j] == CABBAGE) {
-                    int v = bfs(land, num_rows, num_cols, i, j);
+                    bfs(land, num_rows, num_cols, i, j);
 
                     need++;
-                    visited += v;
                 }
             }
         }

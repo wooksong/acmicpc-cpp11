@@ -11,9 +11,9 @@ int main() {
     struct {
         bool operator()(std::pair<uint64_t, std::pair<int, uint32_t>> lhs,
                         std::pair<uint64_t, std::pair<int, uint32_t>> rhs) {
-            if ((lhs.second.second == rhs.second.second)) {
+            if (lhs.second.second == rhs.second.second) {
                 return lhs.second.first < rhs.second.first;
-            } else if ((lhs.second.second > rhs.second.second)) {
+            } else if (lhs.second.second > rhs.second.second) {
                 return true;
             }
             return false;

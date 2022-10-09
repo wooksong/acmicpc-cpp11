@@ -4,7 +4,6 @@
 
 constexpr uint32_t INVAL_AGE = 0;
 constexpr uint32_t INVAL_ORDER = 0;
-constexpr size_t MAX_NUM_MEMBERS = 100001;
 
 struct Member {
     uint32_t age;

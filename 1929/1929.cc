@@ -1,8 +1,6 @@
 #include <iostream>
 #include <vector>
 
-constexpr size_t UPPER_LIMIT = 1000001;
-
 int main() {
     uint32_t M, N;
     std::vector<bool> sieve;

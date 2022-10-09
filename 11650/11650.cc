@@ -17,9 +17,9 @@ struct Point {
     }
 
     void dump() { std::cout << this->x << " " << this->y << "\n"; }
-    friend bool operator<(Point &l, Point &r);
-    friend bool operator>(Point &l, Point &r);
-    friend bool operator==(Point &l, Point &r);
+    friend bool operator<(Point l, Point r);
+    friend bool operator>(Point l, Point r);
+    friend bool operator==(Point l, Point r);
 };
 
 int main() {
@@ -45,7 +45,7 @@ int main() {
     return 0;
 }
 
-bool operator<(Point &l, Point &r) {
+bool operator<(Point l, Point r) {
     if (l.x < r.x)
         return true;
     if (l.x == r.x)
@@ -53,5 +53,5 @@ bool operator<(Point &l, Point &r) {
     return false;
 }
 
-bool operator>(Point &l, Point &r) { return !(l < r); }
-bool operator==(Point &l, Point &r) { return l.x == r.x && l.y == r.y; }
+bool operator>(Point l, Point r) { return !(l < r); }
+bool operator==(Point l, Point r) { return l.x == r.x && l.y == r.y; }

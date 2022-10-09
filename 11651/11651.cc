@@ -16,8 +16,8 @@ struct Point {
         this->y = y;
     };
 
-    friend bool operator<(Point &l, Point &r);
-    friend bool operator>(Point &l, Point &r);
+    friend bool operator<(Point l, Point r);
+    friend bool operator>(Point l, Point r);
 };
 
 int main() {
@@ -41,7 +41,7 @@ int main() {
     return 0;
 }
 
-bool operator<(Point &l, Point &r) {
+bool operator<(Point l, Point r) {
     if (l.y < r.y)
         return true;
     if (l.y == r.y)
@@ -49,4 +49,4 @@ bool operator<(Point &l, Point &r) {
     return false;
 }
 
-bool operator>(Point &l, Point &r) { return !(l < r); }
+bool operator>(Point l, Point r) { return !(l < r); }

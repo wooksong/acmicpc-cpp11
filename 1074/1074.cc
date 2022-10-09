@@ -35,7 +35,6 @@ void visit(int n, int row, int col, int r, int c) {
     n >>= 1;
 
     if ((row <= r && r < row + n) && (col <= c && c < col + n)) {
-        v = v;
         visit(n, row, col, r, c);
     } else if ((row <= r && r < row + n) && (col + n <= c && c < col + 2 * n)) {
         v += (n * n);

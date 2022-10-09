@@ -2,8 +2,6 @@
 #include <iostream>
 #include <vector>
 
-constexpr int MAX_V_SIZE = 1001;
-
 int main() {
     std::vector<int> v;
     std::vector<int> v_sorted;

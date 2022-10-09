@@ -12,7 +12,7 @@ int main() {
     std::cin >> word;
     std::vector<int32_t> charcnts = std::vector<int32_t>(NUMS_ALPHABET, 0);
     for (auto iter = word.begin(); iter != word.end(); ++iter) {
-        size_t idx;
+        size_t idx = 0;
 
         if (*iter >= 'A' && *iter <= 'Z') {
             idx = *iter - 'A';
