@@ -19,9 +19,6 @@ int main() {
         if (input[i] == 'z' && (i + 1) < len_input) {
             if ((i >= 1) && input[i - 1] == 'd' && input[i + 1] == '=') {
                 ++i;
-                cnt += 2;
-            } else if (input[i + 1] == '=') {
-                ++i;
                 ++cnt;
             }
         } else if (input[i] == 'c' || input[i] == 'd' || input[i] == 's') {
