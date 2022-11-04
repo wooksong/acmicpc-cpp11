@@ -11,7 +11,7 @@ struct Element {
         is_visited = false;
     };
 
-    bool operator<(Element &rhs) { return (val < rhs.val); }
+    bool operator<(Element rhs) const { return (val < rhs.val); }
 };
 
 std::vector<Element> elements;
