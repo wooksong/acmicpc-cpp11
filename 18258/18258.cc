@@ -1,8 +1,6 @@
 #include <deque>
 #include <iostream>
 
-constexpr size_t MAX_SIZE = 2000001;
-
 int
 main ()
 {

@@ -17,7 +17,7 @@ main ()
   std::cin.ignore ();
   for (int i = 0; i < N; ++i) {
     std::string cunit;
-    double cval;
+    double cval = 0.0L;
 
     std::getline (std::cin, line);
 
