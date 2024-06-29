@@ -1,25 +1,27 @@
 #include <iostream>
 
-int main() {
-    int k = 10;
-    int N;
+int
+main ()
+{
+  int k = 10;
+  int N;
 
-    // freopen("input.txt", "r", stdin);
-    std::cin >> N;
+  // freopen("input.txt", "r", stdin);
+  std::cin >> N;
 
-    while (N > k) {
-        int r = N % k;
+  while (N > k) {
+    int r = N % k;
 
-        if ((r) >= (k / 2)) {
-            N -= (r);
-            N += k;
-        } else {
-            N -= (r);
-        }
-        k *= 10;
+    if ((r) >= (k / 2)) {
+      N -= (r);
+      N += k;
+    } else {
+      N -= (r);
     }
+    k *= 10;
+  }
 
-    std::cout << N << "\n";
+  std::cout << N << "\n";
 
-    return 0;
+  return 0;
 }

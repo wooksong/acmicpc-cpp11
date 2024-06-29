@@ -11,48 +11,52 @@ std::vector<int> buckets;
 int max_cal = INT32_MIN;
 int cur_cal = 0;
 
-void pick(int limit, int num_buckets);
+void pick (int limit, int num_buckets);
 
-int main() {
-    int C, B;
+int
+main ()
+{
+  int C, B;
 
-    // freopen("input.txt", "r", stdin);
+  // freopen("input.txt", "r", stdin);
 
-    std::ios_base::sync_with_stdio(false);
-    std::cin.tie(nullptr);
-    std::cout.tie(nullptr);
+  std::ios_base::sync_with_stdio (false);
+  std::cin.tie (nullptr);
+  std::cout.tie (nullptr);
 
-    std::cin >> C >> B;
+  std::cin >> C >> B;
 
-    visited.reset();
-    buckets = std::vector<int>(B);
+  visited.reset ();
+  buckets = std::vector<int> (B);
 
-    for (int i = 0; i < B; ++i) {
-        std::cin >> buckets[i];
-    }
+  for (int i = 0; i < B; ++i) {
+    std::cin >> buckets[i];
+  }
 
-    pick(C, B);
-    std::cout << max_cal << "\n";
-    return 0;
+  pick (C, B);
+  std::cout << max_cal << "\n";
+  return 0;
 }
 
-void pick(int limit, int num_buckets) {
-    if (cur_cal > limit) {
-        return;
-    }
+void
+pick (int limit, int num_buckets)
+{
+  if (cur_cal > limit) {
+    return;
+  }
 
-    if (cur_cal > max_cal) {
-        max_cal = cur_cal;
-    }
+  if (cur_cal > max_cal) {
+    max_cal = cur_cal;
+  }
 
-    for (int i = 0; i < num_buckets; ++i) {
-        if (!visited.test(i)) {
-            cur_cal += buckets[i];
-            visited.set(i);
+  for (int i = 0; i < num_buckets; ++i) {
+    if (!visited.test (i)) {
+      cur_cal += buckets[i];
+      visited.set (i);
 
-            pick(limit, num_buckets);
-            visited.reset(i);
-            cur_cal -= buckets[i];
-        }
+      pick (limit, num_buckets);
+      visited.reset (i);
+      cur_cal -= buckets[i];
     }
+  }
 }

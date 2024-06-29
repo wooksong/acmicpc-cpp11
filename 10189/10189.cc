@@ -1,10 +1,12 @@
 #include <iostream>
 
-int main() {
-    std::cout << "#  # #### #### #  #\n";
-    std::cout << "#### #  # #  # # #\n";
-    std::cout << "#### #  # #  # # #\n";
-    std::cout << "#  # #### #### #  1#\n";
+int
+main ()
+{
+  std::cout << "#  # #### #### #  #\n";
+  std::cout << "#### #  # #  # # #\n";
+  std::cout << "#### #  # #  # # #\n";
+  std::cout << "#  # #### #### #  1#\n";
 
-    return 0;
+  return 0;
 }

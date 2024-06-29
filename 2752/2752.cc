@@ -4,33 +4,35 @@ constexpr size_t CNT_NUMS = 3;
 
 int32_t nums[CNT_NUMS];
 
-int main() {
-    int32_t min, max, the_other = 0;
+int
+main ()
+{
+  int32_t min, max, the_other = 0;
 
-    min = INT32_MAX;
-    max = -1;
+  min = INT32_MAX;
+  max = -1;
 
-    // freopen("input.txt", "r", stdin);
+  // freopen("input.txt", "r", stdin);
 
-    std::cin >> nums[0] >> nums[1] >> nums[2];
-    for (size_t i = 0; i < CNT_NUMS; ++i) {
-        if (nums[i] > max) {
-            max = nums[i];
-        }
-
-        if (nums[i] < min) {
-            min = nums[i];
-        }
+  std::cin >> nums[0] >> nums[1] >> nums[2];
+  for (size_t i = 0; i < CNT_NUMS; ++i) {
+    if (nums[i] > max) {
+      max = nums[i];
     }
 
-    for (size_t i = 0; i < CNT_NUMS; ++i) {
-        if (nums[i] != max && nums[i] != min) {
-            the_other = nums[i];
-            break;
-        }
+    if (nums[i] < min) {
+      min = nums[i];
     }
+  }
 
-    std::cout << min << " " << the_other << " " << max << "\n";
+  for (size_t i = 0; i < CNT_NUMS; ++i) {
+    if (nums[i] != max && nums[i] != min) {
+      the_other = nums[i];
+      break;
+    }
+  }
 
-    return 0;
+  std::cout << min << " " << the_other << " " << max << "\n";
+
+  return 0;
 }

@@ -2,17 +2,19 @@
 #include <unordered_map>
 
 std::unordered_map<std::string, std::string> dict = {
-    {"NLCS", "North London Collegiate School"},
-    {"BHA", "Branksome Hall Asia"},
-    {"KIS", "Korea International School"},
-    {"SJA", "St. Johnsbury Academy"},
+  { "NLCS", "North London Collegiate School" },
+  { "BHA", "Branksome Hall Asia" },
+  { "KIS", "Korea International School" },
+  { "SJA", "St. Johnsbury Academy" },
 };
 
-int main() {
-    std::string abbrv;
+int
+main ()
+{
+  std::string abbrv;
 
-    std::cin >> abbrv;
-    std::cout << dict[abbrv] << "\n";
+  std::cin >> abbrv;
+  std::cout << dict[abbrv] << "\n";
 
-    return 0;
+  return 0;
 }

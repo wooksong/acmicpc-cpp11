@@ -2,14 +2,15 @@
 
 constexpr int MAXLEN = 101;
 
-int main () {
-    char line[MAXLEN];
+int
+main ()
+{
+  char line[MAXLEN];
 
-    // freopen("input.txt", "r", stdin);
-    while (std::cin.getline(line, MAXLEN, '\n'))
-    {
-        printf("%s\n", line);
-    }
+  // freopen("input.txt", "r", stdin);
+  while (std::cin.getline (line, MAXLEN, '\n')) {
+    printf ("%s\n", line);
+  }
 
-    return 0;
+  return 0;
 }

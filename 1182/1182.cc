@@ -10,46 +10,50 @@ std::bitset<MAX_N> is_picked;
 int cnt = 0;
 int N, target_sum;
 
-void pick(int next, int depth, int sum);
+void pick (int next, int depth, int sum);
 
-int main() {
-    freopen("input.txt", "r", stdin);
+int
+main ()
+{
+  freopen ("input.txt", "r", stdin);
 
-    std::ios_base::sync_with_stdio(false);
-    std::cin.tie(nullptr);
-    std::cin >> N >> target_sum;
+  std::ios_base::sync_with_stdio (false);
+  std::cin.tie (nullptr);
+  std::cin >> N >> target_sum;
 
-    arr = std::vector<int>(N);
-    picked = std::vector<int>(N);
-    is_picked.reset();
+  arr = std::vector<int> (N);
+  picked = std::vector<int> (N);
+  is_picked.reset ();
 
-    for (int i = 0; i < N; ++i) {
-        std::cin >> arr[i];
-    }
+  for (int i = 0; i < N; ++i) {
+    std::cin >> arr[i];
+  }
 
-    pick(0, 0, 0);
+  pick (0, 0, 0);
 
-    std::cout << cnt << "\n";
+  std::cout << cnt << "\n";
 
-    return 0;
+  return 0;
 }
 
-void pick(int next, int depth, int sum) {
-    if (depth > 0 && sum == target_sum) {
-        cnt++;
-    }
-    if (depth == N) {
-        return;
-    }
+void
+pick (int next, int depth, int sum)
+{
+  if (depth > 0 && sum == target_sum) {
+    cnt++;
+  }
+  if (depth == N) {
+    return;
+  }
 
-    for (int i = next; i < N; ++i) {
-        if (!is_picked.test(i)) {
-            is_picked.set(i);
-            sum += arr[i];
-            picked[depth] = arr[i];
-            pick(i + 1, depth + 1, sum);
-            sum -= arr[i];
-            is_picked.reset(i);
-        }
+  for (int i = next; i < N; ++i) {
+    if (!is_picked.test (i)) {
+      is_picked.set (i);
+      sum += arr[i];
+      picked[depth] = arr[i];
+      pick (i + 1, depth + 1, sum);
+      sum -= arr[i];
+      is_picked.reset (i);
     }
+  }
 }
